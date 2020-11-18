@@ -3,60 +3,35 @@
     %title
       It's Bingo Bitch
   %body
-    Hello Carrot Cat!
+    %h2= "Welcome to Bingo!"
     %table
       %tr
-        %td
-          #{board[0]}
-        %td
-          2
-        %td
-          3
-        %td
-          4
-        %td
-          5
+        %td= @card.get_space(0)
+        %td= @card.get_space(1)
+        %td= @card.get_space(2)
+        %td= @card.get_space(3)
+        %td= @card.get_space(4)
       %tr
-        %td
-          6
-        %td
-          7
-        %td
-          8
-        %td
-          9
-        %td
-          10
+        %td= @card.get_space(5)
+        %td= @card.get_space(6)
+        %td= @card.get_space(7)
+        %td= @card.get_space(8)
+        %td= @card.get_space(9)
       %tr
-        %td
-          11
-        %td
-          12
-        %td
-          13
-        %td
-          14
-        %td
-          15
+        %td= @card.get_space(10)
+        %td= @card.get_space(11)
+        %td= @card.get_space(12)
+        %td= @card.get_space(13)
+        %td= @card.get_space(14)
       %tr
-        %td
-          16
-        %td
-          17
-        %td
-          18
-        %td
-          19
-        %td
-          20
+        %td= @card.get_space(15)
+        %td= @card.get_space(16)
+        %td= @card.get_space(17)
+        %td= @card.get_space(18)
+        %td= @card.get_space(19)
       %tr
-        %td
-          21
-        %td
-          22
-        %td
-          23
-        %td
-          24
-        %td
-          25
+        %td= @card.get_space(20)
+        %td= @card.get_space(21)
+        %td= @card.get_space(22)
+        %td= @card.get_space(23)
+        %td= @card.get_space(24)

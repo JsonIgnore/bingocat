@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'haml'
 
+require_relative "lib/card.rb"
+
 # Setup for
 set :haml, :format => :html5
 
@@ -9,6 +11,6 @@ puts 'Running Hello Carrot Cat!'
 
 
 get '/' do
-
-  haml :index, :locals => {:board => [1..25]}
+  @card = Card.new()
+  haml :index
 end
