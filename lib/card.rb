@@ -1,36 +1,21 @@
 class Card
   @spaces
 
-  def initialize
-    @spaces = Array.new(5)
-    (0..4).each do |row|
-      @spaces[row] = Array.new(5)
-    end
+  def initialize(values = (1..24).to_a , free_space = "Free")
+    @spaces = Array.new(25)
+    @spaces[0,12] = values[0,12]
+    @spaces[12] = free_space
+    @spaces[13,12] = values[12,12]
   end
 
   def get_space(row, column)
-    return @spaces[row][column]
+    return @spaces[convert_to_position(row, column)]
   end
 
-  def set_space(row, column, value)
-    @spaces[row][column] = value
-  end
+  private
 
-
-  def self.make_random_numeric_card(min=1, max=75)
-    value_range = Array(min..max)
-    rng = Random.new
-
-    card = Card.new
-
-    (0..4).each do |row|
-      (0..4).each do |column|
-        value = value_range.delete_at(rng.rand(value_range.size))
-        card.set_space(row, column, value)
-      end
-    end
-
-    return card
+  def convert_to_position(row, column)
+    return (row * 5) + column
   end
 
 end

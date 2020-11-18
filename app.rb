@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'haml'
 
-require_relative "lib/card.rb"
+require_relative "lib/term_set"
 
 # Setup for
 set :haml, :format => :html5
@@ -11,6 +11,6 @@ puts 'Running Hello Carrot Cat!'
 
 
 get '/' do
-  @card = Card.make_random_numeric_card
+  @card = TermSet.make_numeric_terms.generate_random_card
   haml :index
 end
