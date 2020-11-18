@@ -2,36 +2,39 @@
   %head
     %title
       It's Bingo Bitch
+    %link{:rel => 'stylesheet', :href => 'bingocat.css'}
   %body
-    %h2= "Welcome to Bingo!"
-    %table
-      %tr
-        %td= @card.get_space(0,0)
-        %td= @card.get_space(0,1)
-        %td= @card.get_space(0,2)
-        %td= @card.get_space(0,3)
-        %td= @card.get_space(0,4)
-      %tr
-        %td= @card.get_space(1,0)
-        %td= @card.get_space(1,1)
-        %td= @card.get_space(1,2)
-        %td= @card.get_space(1,3)
-        %td= @card.get_space(1,4)
-      %tr
-        %td= @card.get_space(2,0)
-        %td= @card.get_space(2,1)
-        %td= @card.get_space(2,2)
-        %td= @card.get_space(2,3)
-        %td= @card.get_space(2,4)
-      %tr
-        %td= @card.get_space(3,0)
-        %td= @card.get_space(3,1)
-        %td= @card.get_space(3,2)
-        %td= @card.get_space(3,3)
-        %td= @card.get_space(3,4)
-      %tr
-        %td= @card.get_space(4,0)
-        %td= @card.get_space(4,1)
-        %td= @card.get_space(4,2)
-        %td= @card.get_space(4,3)
-        %td= @card.get_space(4,4)
+    .container 
+      %h1.header1= "meeting bingo!"
+      %table.card
+        %tr
+          %td= @card.get_space(0,0)
+          %td= @card.get_space(0,1)
+          %td= @card.get_space(0,2)
+          %td= @card.get_space(0,3)
+          %td= @card.get_space(0,4)
+        %tr
+          %td= @card.get_space(1,0)
+          %td= @card.get_space(1,1)
+          %td= @card.get_space(1,2)
+          %td= @card.get_space(1,3)
+          %td= @card.get_space(1,4)
+        %tr
+          %td= @card.get_space(2,0)
+          %td= @card.get_space(2,1)
+          %td= @card.get_space(2,2)
+          %td= @card.get_space(2,3)
+          %td= @card.get_space(2,4)
+        %tr
+          %td= @card.get_space(3,0)
+          %td= @card.get_space(3,1)
+          %td= @card.get_space(3,2)
+          %td= @card.get_space(3,3)
+          %td= @card.get_space(3,4)
+        %tr
+          %td= @card.get_space(4,0)
+          %td= @card.get_space(4,1)
+          %td= @card.get_space(4,2)
+          %td= @card.get_space(4,3)
+          %td= @card.get_space(4,4)
+      %footer.footer1

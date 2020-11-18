@@ -8,6 +8,7 @@ require_relative "lib/term_set"
 
 # Setup haml templates to use html5 by default
 set :haml, :format => :html5
+set :public_folder, 'public'
 
 # We'll make a CLI log entry real quick so we can see the app running in Docker
 puts 'Running Hello Carrot Cat!'

@@ -1,0 +1,46 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
+
+.card {
+	border: 4px solid;
+	border-spacing: 10px;
+	border-collapse: collapse;
+	padding: 3px;
+	width: 100%;
+}
+
+.card tr td {
+	padding: 2px;	
+	border: 4px solid #2E75CC;
+	height: 120px;
+	width: 120px;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 13pt;
+}
+
+.container {
+	width: 700px;
+}
+
+.header1, .footer1 {
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #2E75CC;
+	height: 80px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+	font-weight: 650;
+	font-size: 48pt;
+	margin-bottom: 0;	
+}
+.footer1{
+	height: 50px;
+}
+
+.header2 {}
