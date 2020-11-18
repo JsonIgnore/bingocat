@@ -11,6 +11,6 @@ puts 'Running Hello Carrot Cat!'
 
 
 get '/' do
-  @card = Card.new()
+  @card = Card.make_random_numeric_card
   haml :index
 end
