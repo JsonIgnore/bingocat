@@ -7,6 +7,8 @@ set :haml, :format => :html5
 # We'll make a CLI log entry real quick so we can see the app running in Docker
 puts 'Running Hello Carrot Cat!'
 
+
 get '/' do
-  haml :index
+
+  haml :index, :locals => {:board => [1..25]}
 end
