@@ -18,10 +18,11 @@ unless dao.database_exists
   print "Creating a sample terms and card for testing..."
   terms = TermSet.make_numeric_terms
   terms = dao.save_term_set(terms)
-  card = terms.generate_random_card
-  dao.save_card(card)
+
   print " Done!\n"
 end
+
+default_terms = dao.get_term_set(1)
 
 # Setup haml templates to use html5 by default
 set :haml, :format => :html5
@@ -33,8 +34,7 @@ puts 'Running Hello Carrot Cat!'
 # Landing
 # Show a randomly generated number card
 get '/' do
-  card = dao.save_card(TermSet.make_numeric_terms.generate_random_card)
-  redirect "/card/#{card.get_id}"
+  redirect "/generate/#{default_terms.get_id}"
 end
 
 # Show an existing Card
