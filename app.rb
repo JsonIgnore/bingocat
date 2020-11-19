@@ -33,9 +33,8 @@ puts 'Running Hello Carrot Cat!'
 # Landing
 # Show a randomly generated number card
 get '/' do
-  @card = TermSet.make_numeric_terms.generate_random_card
-  @card = dao.save_card(@card)
-  redirect "/card/#{@card.get_id}"
+  card = dao.save_card(TermSet.make_numeric_terms.generate_random_card)
+  redirect "/card/#{card.get_id}"
 end
 
 # Show an existing Card
@@ -47,7 +46,9 @@ end
 # Generate a card from the terms id
 # Should generate/save a card and then redirect to /card/:card_id
 get '/generate/:terms_id' do
-  "WIP"
+  term_set = dao.get_term_set(params[:terms_id])
+  card = dao.save_card(term_set.generate_random_card)
+  redirect "/card/#{card.get_id}"
 end
 
 # Page to define terms to use for cards
