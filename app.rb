@@ -17,7 +17,7 @@ unless dao.database_exists
 
   print "Creating a sample terms and card for testing..."
   terms = TermSet.make_numeric_terms
-  dao.save_term_set(terms)
+  terms = dao.save_term_set(terms)
   card = terms.generate_random_card
   dao.save_card(card)
   print " Done!\n"
@@ -34,8 +34,8 @@ puts 'Running Hello Carrot Cat!'
 # Show a randomly generated number card
 get '/' do
   @card = TermSet.make_numeric_terms.generate_random_card
-  result = dao.save_card(@card)
-  redirect "/card/#{result}"
+  @card = dao.save_card(@card)
+  redirect "/card/#{@card.get_id}"
 end
 
 # Show an existing Card

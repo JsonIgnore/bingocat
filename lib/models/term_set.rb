@@ -2,11 +2,6 @@ require_relative "card"
 
 class TermSet
 
-  @id = nil
-  @name = nil
-  @terms
-  @free_space
-
   def initialize(terms = Array.new(24), free_space = "Free", name=nil, id=nil)
     @id = id
     @name = name
@@ -16,23 +11,23 @@ class TermSet
 
   def self.make_numeric_terms(min=1, max=75)
     numbers = Array(min..max)
-    return TermSet.new(numbers, "Free", "Common Bingo")
+    TermSet.new(numbers, "Free", "Common Bingo")
   end
 
   def get_id
-    return @id
+    @id
   end
 
   def get_name
-    return @name
+    @name
   end
 
   def get_terms
-    return @terms
+    @terms
   end
 
   def get_free_space
-    return @free_space
+    @free_space
   end
 
   def generate_random_card
@@ -44,7 +39,7 @@ class TermSet
       selection << unused_terms.delete_at(rng.rand(unused_terms.size))
     end
 
-    return Card.new(selection, @free_space)
+    Card.generate(selection, @free_space)
   end
 
 end

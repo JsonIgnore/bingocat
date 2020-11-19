@@ -9,7 +9,7 @@ class SqliteConnection
   @@database_file = 'carrot-cat.db'.freeze
 
   protected def get_database_connection
-    return SQLite3::Database.new @@database_file
+    SQLite3::Database.new @@database_file
   end
 
 end

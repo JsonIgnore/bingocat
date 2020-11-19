@@ -18,11 +18,11 @@ class DatabaseCreator < SqliteConnection
   private
 
   def create_terms_table
-    results = @database.execute TERMS_TABLE_DEFINITION
+    @database.execute TERMS_TABLE_DEFINITION
   end
 
   def create_cards_table
-    results = @database.execute CARDS_TABLE_DEFINITION
+    @database.execute CARDS_TABLE_DEFINITION
   end
 
 
