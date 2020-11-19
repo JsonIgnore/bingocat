@@ -16,7 +16,7 @@ class TermSet
 
   def self.make_numeric_terms(min=1, max=75)
     numbers = Array(min..max)
-    return TermSet.new(numbers)
+    return TermSet.new(numbers, "Free", "Common Bingo")
   end
 
   def get_name()

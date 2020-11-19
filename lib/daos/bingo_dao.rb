@@ -10,6 +10,13 @@ class BingoDao < SqliteConnection
   end
 
 
+  def database_exists()
+    # Cheeky, but we'll look and see if the terms table has been created yet as our metric for "does it exist"
+    result = @database.table_info("terms")
+    return (result.size != 0)
+  end
+
+
   def save_term_set(term_set)
     if term_set.get_terms().size < 24
       raise DatabaseError.new("Cannot save a term set with less than 24 terms")
@@ -32,6 +39,10 @@ class BingoDao < SqliteConnection
     return terms.join(",")
   end
 
+  DATABASE_TABLES_EXIST_CHECK = "
+    SELECT COUNT(name) FROM sqlite_master WHERE type='table'
+    ;"
+  private_constant :DATABASE_TABLES_EXIST_CHECK
 
   INSERT_INTO_TERMS_SQL = "
     INSERT INTO terms (name, terms_string, free_space)

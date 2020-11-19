@@ -6,6 +6,14 @@ require_relative "lib/daos/database_creator"
 require_relative "lib/daos/bingo_dao"
 require_relative "lib/models/term_set"
 
+# Create our Dao and create the DB if we need to
+dao = BingoDao.new
+unless dao.database_exists
+  print "Carrot Cat DB not found - Creating now..."
+  db_creator = DatabaseCreator.new
+  db_creator.create_database
+  print " Done!\n"
+end
 
 # Setup haml templates to use html5 by default
 set :haml, :format => :html5
