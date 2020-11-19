@@ -5,8 +5,8 @@
     %link{:rel => 'stylesheet', :href => 'bingocat.css'}
   %body
     .container 
-      %h1.header1= "meeting bingo!"
-      %table.card
+      %h1= "meeting bingo!"
+      %table
         %tr
           %td= @card.get_space(0,0)
           %td= @card.get_space(0,1)
@@ -38,3 +38,5 @@
           %td= @card.get_space(4,3)
           %td= @card.get_space(4,4)
       %footer.footer1
+        %button.header3.generate="help oh no"
+        %button.header3.share="wtf do I do"
