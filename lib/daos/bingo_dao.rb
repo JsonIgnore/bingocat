@@ -45,10 +45,12 @@ class BingoDao < SqliteConnection
       made_from_id = nil
     end
 
-    ins = @database.prepare(INSERT_INTO_CARDS_SQL)
-    result = ins.execute(spaces_string, made_from_id)
+    @database.prepare(INSERT_INTO_CARDS_SQL).execute(spaces_string, made_from_id) 
+    @database.last_insert_row_id
+  end
 
-    return result
+  def get_card(card_id) 
+    result = @database.prepare(SELECT_FROM_CARD_ID).execute(card_id)
   end
 
 
@@ -72,5 +74,9 @@ class BingoDao < SqliteConnection
     INSERT INTO cards (spaces_string, made_from)
     VALUES (?, ?);"
   private_constant :INSERT_INTO_TERMS_SQL
+
+  SELECT_FROM_CARD_ID = "
+  SELECT * from cards WHERE id = ?;"
+  private_constant :SELECT_FROM_CARD_ID
 
 end

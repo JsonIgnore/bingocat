@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'haml'
 require 'sqlite3'
+require 'pry'
 
 require_relative "lib/daos/database_creator"
 require_relative "lib/daos/bingo_dao"
@@ -33,12 +34,14 @@ puts 'Running Hello Carrot Cat!'
 # Show a randomly generated number card
 get '/' do
   @card = TermSet.make_numeric_terms.generate_random_card
-  haml :index
+  result = dao.save_card(@card)
+  redirect "/card/#{result}"
 end
 
 # Show an existing Card
 get '/card/:card_id' do
-  "WIP"
+	@card = dao.get_card(params[:card_id])
+  haml :view_card
 end
 
 # Generate a card from the terms id
