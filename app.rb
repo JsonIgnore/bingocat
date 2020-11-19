@@ -2,9 +2,10 @@ require 'sinatra'
 require 'haml'
 require 'sqlite3'
 
-require_relative "lib/term_set"
+require_relative "lib/daos/database_creator"
+require_relative "lib/daos/bingo_dao"
+require_relative "lib/models/term_set"
 
-# SQLite3::Database.open('test.db')
 
 # Setup haml templates to use html5 by default
 set :haml, :format => :html5
