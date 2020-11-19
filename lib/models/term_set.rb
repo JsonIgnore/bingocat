@@ -19,19 +19,23 @@ class TermSet
     return TermSet.new(numbers, "Free", "Common Bingo")
   end
 
-  def get_name()
+  def get_id
+    return @id
+  end
+
+  def get_name
     return @name
   end
 
-  def get_terms()
+  def get_terms
     return @terms
   end
 
-  def get_free_space()
+  def get_free_space
     return @free_space
   end
 
-  def generate_random_card()
+  def generate_random_card
     unused_terms = @terms.dup
     selection = []
     rng = Random.new
