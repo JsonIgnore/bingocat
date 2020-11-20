@@ -37,7 +37,7 @@ end
 
 # Show an existing Card
 get '/card/:card_id' do
-	@card = dao.get_card(params[:card_id])
+  @card = dao.get_card(params[:card_id])
   haml :view_card
 end
 
@@ -59,12 +59,29 @@ end
 # Load the /create view with an existing set of terms for viewing or submitting changes for
 # currently this will generate a new terms entry, as we're not supporting edits
 get '/terms/:terms_id' do
-  "WIP"
+  @terms = nil
+  begin
+    @terms = dao.get_term_set(params[:terms_id])
+  rescue DatabaseError
+    redirect '/create'
+  end
+
+  haml :create_terms
 end
 
 # Submit terms to be verified/saved
 post '/terms' do
-  valid_terms = TermSet.validate_terms_string(params['terms'])
+  valid_terms = nil
+  begin
+    valid_terms = TermSet.validate_terms_string(params['terms'])
+  rescue TermSetValidationError => @validation_error
+    @terms = TermSet.new(
+        params['terms'].split(","),
+        params['free-space'],
+        params['name'])
+    # Escape!
+    return haml :create_terms
+  end
 
   @terms = dao.save_term_set(TermSet.new(valid_terms, params['free-space'], params['name']))
 

@@ -6,7 +6,7 @@
     %script{:src => '/bundle.js'}
   %body
     .container 
-      %h1= "meeting bingo!" 
+      %h1= @card.get_defining_terms.get_name
       %table
         %tr
           %td#space-a-1= @card.get_space(0,0)

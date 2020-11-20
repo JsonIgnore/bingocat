@@ -39,12 +39,26 @@ class TermSet
       selection << unused_terms.delete_at(rng.rand(unused_terms.size))
     end
 
-    Card.generate(selection, @free_space)
+    Card.generate(selection, @free_space, self)
   end
 
   def self.validate_terms_string(terms_string)
+    potential_terms = terms_string.split(",")
 
-    "It's,All,Fine,For,Now,a,b,c,z,y,x,1,2,3,4,5,What,Even,Bitch,like,how,many,words,is,this,really?".split(",")
+    unless potential_terms.kind_of?(Array)
+      raise TermSetValidationError.new("No terms submitted.")
+    end
+
+    if potential_terms.size < 24
+      raise TermSetValidationError.new("#{potential_terms.size} terms submitted, a minimum of 24 is required.")
+    end
+
+    valid_terms = []
+    potential_terms.each do |term|
+      valid_terms << term.strip
+    end
+
+    valid_terms
   end
 
 end

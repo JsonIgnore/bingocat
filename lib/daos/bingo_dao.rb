@@ -98,10 +98,12 @@ class BingoDao < SqliteConnection
   end
 
   def convert_result_to_card(result)
-    Card.new(
-        extract_array_from_string(result[0]),
-        result[1],
-        result[2])
+    spaces = extract_array_from_string(result[0])
+    made_from = nil
+    unless result[1].nil?
+      made_from = get_term_set(result[1])
+    end
+    Card.new(spaces, made_from, result[2])
   end
 
   def flatten_string_array(string_array)
