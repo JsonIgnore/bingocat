@@ -3,40 +3,41 @@
     %title
       It's Bingo Bitch
     %link{:rel => 'stylesheet', :href => '/bingocat.css'}
+    %script{:src => '/bundle.js'}
   %body
     .container 
       %h1= "meeting bingo!" 
       %table
         %tr
-          %td= @card.get_space(0,0)
-          %td= @card.get_space(0,1)
-          %td= @card.get_space(0,2)
-          %td= @card.get_space(0,3)
-          %td= @card.get_space(0,4)
+          %td#space-a-1= @card.get_space(0,0)
+          %td#space-a-2= @card.get_space(0,1)
+          %td#space-a-3= @card.get_space(0,2)
+          %td#space-a-4= @card.get_space(0,3)
+          %td#space-a-5= @card.get_space(0,4)
         %tr
-          %td= @card.get_space(1,0)
-          %td= @card.get_space(1,1)
-          %td= @card.get_space(1,2)
-          %td= @card.get_space(1,3)
-          %td= @card.get_space(1,4)
+          %td#space-b-1= @card.get_space(1,0)
+          %td#space-b-2= @card.get_space(1,1)
+          %td#space-b-3= @card.get_space(1,2)
+          %td#space-b-4= @card.get_space(1,3)
+          %td#space-b-5= @card.get_space(1,4)
         %tr
-          %td= @card.get_space(2,0)
-          %td= @card.get_space(2,1)
-          %td= @card.get_space(2,2)
-          %td= @card.get_space(2,3)
-          %td= @card.get_space(2,4)
+          %td#space-c-1= @card.get_space(2,0)
+          %td#space-c-2= @card.get_space(2,1)
+          %td#space-c-3= @card.get_space(2,2)
+          %td#space-c-4= @card.get_space(2,3)
+          %td#space-c-5= @card.get_space(2,4)
         %tr
-          %td= @card.get_space(3,0)
-          %td= @card.get_space(3,1)
-          %td= @card.get_space(3,2)
-          %td= @card.get_space(3,3)
-          %td= @card.get_space(3,4)
+          %td#space-d-1= @card.get_space(3,0)
+          %td#space-d-2= @card.get_space(3,1)
+          %td#space-d-3= @card.get_space(3,2)
+          %td#space-d-4= @card.get_space(3,3)
+          %td#space-d-5= @card.get_space(3,4)
         %tr
-          %td= @card.get_space(4,0)
-          %td= @card.get_space(4,1)
-          %td= @card.get_space(4,2)
-          %td= @card.get_space(4,3)
-          %td= @card.get_space(4,4)
+          %td#space-e-1= @card.get_space(4,0)
+          %td#space-e-2= @card.get_space(4,1)
+          %td#space-e-3= @card.get_space(4,2)
+          %td#space-e-4= @card.get_space(4,3)
+          %td#space-e-5= @card.get_space(4,4)
       %footer.footer1
-        %button.header3.generate="help oh no"
-        %button.header3.share="wtf do I do"
+        %button.header3.generate#generate="generate oh no"
+        %button.header3.share#share="wtf do I do"
