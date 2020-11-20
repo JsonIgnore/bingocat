@@ -42,4 +42,12 @@ class TermSet
     Card.generate(selection, @free_space)
   end
 
+  def self.validate_terms_string(terms_string)
+
+    "It's,All,Fine,For,Now,a,b,c,z,y,x,1,2,3,4,5,What,Even,Bitch,like,how,many,words,is,this,really?".split(",")
+  end
+
+end
+
+class TermSetValidationError < StandardError
 end

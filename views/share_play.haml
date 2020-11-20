@@ -1,0 +1,18 @@
+%html
+  %head
+    %title
+      It's Bingo Bitch
+    %link{:rel => 'stylesheet', :href => '/bingocat.css'}
+  %body
+    .container 
+      %h1= "Share and Play!"
+      %form{:method => 'POST', :action => '/terms'}
+        %p
+          Nice! You're ready to play some Bingo! But BEFORE YOU GO!
+          you might want to save a few of these links so you can play along with someone else or make another term list
+        .row
+          Generate a Card from your Terms (Share this link):
+          .inset= "#{request.host}/generate/#{@terms.get_id}"
+        .row
+          Make a new term list based on this one:
+          .inset= "#{request.host}/terms/#{@terms.get_id}"

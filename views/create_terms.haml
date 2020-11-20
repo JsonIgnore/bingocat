@@ -1,0 +1,24 @@
+%html
+  %head
+    %title
+      It's Bingo Bitch
+    %link{:rel => 'stylesheet', :href => '/bingocat.css'}
+  %body
+    .container 
+      %h1= "Card Generator"
+      %form{:method => 'POST', :action => '/terms'}
+        %p
+          Use this page to create your own Bingo Card generator
+        .formField
+          Name:
+          %input{:type => 'input', :name => 'name', :value => @terms.get_name}
+        .formField
+          Free Space:
+          %input{:type => 'input', :name => 'free-space', :value => @terms.get_free_space}
+        .formField
+          %p
+            Please type each term or phrase that should appear on Bingo cards, separated by commas. You may have as many
+            items as you like, but must have at least 24 so that each square can be filled.
+          %textarea{:name => 'terms'}= @terms.get_terms.join(" ,")
+        .formField
+          %input{:type => 'submit', :value => 'Make Bingo Happen!'}

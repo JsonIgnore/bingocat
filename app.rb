@@ -16,9 +16,7 @@ unless dao.database_exists
   print " Done!\n"
 
   print "Creating a sample terms and card for testing..."
-  terms = TermSet.make_numeric_terms
-  terms = dao.save_term_set(terms)
-
+  dao.save_term_set(TermSet.make_numeric_terms)
   print " Done!\n"
 end
 
@@ -29,7 +27,7 @@ set :haml, :format => :html5
 set :public_folder, 'public'
 
 # We'll make a CLI log entry real quick so we can see the app running in Docker
-puts 'Running Hello Carrot Cat!'
+puts 'Running Carrot Cat!'
 
 # Landing
 # Show a randomly generated number card
@@ -54,7 +52,8 @@ end
 # Page to define terms to use for cards
 # form posts to /terms
 get '/create' do
-  "WIP"
+  @terms = TermSet.new([])
+  haml :create_terms
 end
 
 # Load the /create view with an existing set of terms for viewing or submitting changes for
@@ -65,5 +64,10 @@ end
 
 # Submit terms to be verified/saved
 post '/terms' do
-  "WIP"
+  valid_terms = TermSet.validate_terms_string(params['terms'])
+
+  @terms = dao.save_term_set(TermSet.new(valid_terms, params['free-space'], params['name']))
+
+  haml :share_play
 end
+
