@@ -6,7 +6,7 @@
   %body
     .container 
       %h1= "Card Generator"
-      .report{ :class => (@validation_error.message unless @validation_error.nil?)}
+      .report= (@validation_error.message unless @validation_error.nil?)
       %form{:method => 'POST', :action => '/terms'}
         %p
           Use this page to create your own Bingo Card generator
