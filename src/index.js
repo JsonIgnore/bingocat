@@ -15,8 +15,9 @@ function selectSpace(el) {
 }
 
 function generateCard() {
-	console.log("rage quitting")
-	window.location.assign('/')
+	console.log("rage quitting");
+	const termset_id = document.getElementById('parent_termset').innerText;
+	window.location.assign(`/generate/${termset_id}`)
 }
 
 function shareCard() {
@@ -45,5 +46,5 @@ docReady(function() {
 	var share = document.getElementById("share").addEventListener("click", shareCard)
 	
 
-    // DOM is loaded and ready for manipulation here
+  // DOM is loaded and ready for manipulation here
 });

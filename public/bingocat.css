@@ -85,3 +85,7 @@ button {
 	margin-left: 50px;
 }
 
+.hidden {
+	visibility: hidden;
+}
+
