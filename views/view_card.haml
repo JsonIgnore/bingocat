@@ -1,7 +1,7 @@
 %html
   %head
     %title
-      It's Bingo Bitch
+      It's Bingo, Bitch
     %link{:rel => 'stylesheet', :href => '/bingocat.css'}
     %script{:src => '/bundle.js'}
   %body
@@ -39,6 +39,6 @@
           %td#space-e-4= @card.get_space(4,3)
           %td#space-e-5= @card.get_space(4,4)
       %footer.footer1
-        %button.header3.generate#generate="generate oh no"
-        %button.header3.share#share="wtf do I do"
+        %button.header3.restart#generate="new card"
+        %button.header3.share#share="add terms"
       .hidden#parent_termset= @card.get_defining_terms.get_id

@@ -5,9 +5,8 @@ html { font-family: 'Inter', sans-serif; }
 }
 
 .container {
-	width: 700px;
+	width: 800px;
 	text-align: center;
-	text-transform: uppercase;
 }
 
 
@@ -43,6 +42,7 @@ h1, .footer1 {
 	font-weight: 700;
 	font-size: 48pt;
 	margin-bottom: 0;	
+	text-transform: uppercase;
 }
 .footer1 {
 	height: 50px;
@@ -54,7 +54,7 @@ h1, .footer1 {
 .header2, .header3 {
 	font-size: 24pt;
 	font-weight: 600;
-	color: gray;
+	color: #333333;
 	text-transform: uppercase;
 }
 
@@ -63,7 +63,7 @@ h1, .footer1 {
 }
 
 button {
-  border: 1px solid gray;
+  border: 1px #333333;
   padding: 6px;
 } 
 

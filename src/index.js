@@ -15,13 +15,24 @@ function selectSpace(el) {
 }
 
 function generateCard() {
-	console.log("rage quitting");
-	const termset_id = document.getElementById('parent_termset').innerText;
-	window.location.assign(`/generate/${termset_id}`)
+	console.log("rage quitting")
+	const termset_id = document.getElementById('parent_termset').innerHTML
+	if (termset_id) {
+		window.location.assign(`/generate/${termset_id}`)		
+	} else {
+		window.location.assign('/')
+	}
+
 }
 
-function shareCard() {
-	console.log("bragging")
+function addTerms() {
+	console.log("trolling")
+	const termset_id = document.getElementById('parent_termset').innerHTML
+	if (termset_id) {
+		window.location.assign(`/terms/${termset_id}`)
+	} else {
+		window.location.assign('/create')
+	}
 }
 
 docReady(function() {
@@ -43,7 +54,7 @@ docReady(function() {
 	})
 
 	var gen = document.getElementById("generate").addEventListener("click", generateCard)
-	var share = document.getElementById("share").addEventListener("click", shareCard)
+	var share = document.getElementById("share").addEventListener("click", addTerms)
 	
 
   // DOM is loaded and ready for manipulation here
