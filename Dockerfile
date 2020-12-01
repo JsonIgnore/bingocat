@@ -7,6 +7,9 @@ RUN apk add make g++ sqlite-dev
 COPY Gemfile Gemfile.lock /home/app/
 WORKDIR /home/app
 
+RUN mkdir /home/app/db
+VOLUME ["/home/app/db"]
+
 EXPOSE 4567
 
 RUN bundle install

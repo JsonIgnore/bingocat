@@ -6,7 +6,7 @@ require "sqlite3"
 # Intended to be used as a base class for Sqlite specific DAOs and utilities to extend and reuse connection details.
 class SqliteConnection
 
-  @@database_file = 'carrot-cat.db'.freeze
+  @@database_file = 'db/carrot-cat.db'.freeze
 
   protected def get_database_connection
     SQLite3::Database.new @@database_file
