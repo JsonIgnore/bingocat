@@ -14,11 +14,6 @@ EXPOSE 4567
 
 RUN bundle install
 
-COPY app.rb config.ru package.json webpack.config.js /home/app/
-COPY dist /home/app/dist
-COPY lib /home/app/lib
-COPY public /home/app/public
-COPY src /home/app/src
-COPY views /home/app/views
+COPY . /home/app/
 
 CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "--port", "4567"]

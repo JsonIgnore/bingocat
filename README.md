@@ -1,4 +1,4 @@
-## Carrot Cat
+## Bingo Cat
 
 A smol tech days project for a little group that wants to make Bingo happen.
 

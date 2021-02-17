@@ -1,1 +1,12 @@
+# Documentation
+docs/
+README.md
+
+# Build and Dev things
 Dockerfile
+.gitignore
+.babelrc
+.eslintrc
+
+# SQLite3 DB mount is created explicitly by Docker
+db/
